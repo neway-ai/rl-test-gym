@@ -27,7 +27,7 @@ class OneActionZeroObsOneRewardEnv(gym.Env):
         self, *, seed: Optional[int] = None, options: Optional[Dict[str, Any]] = None
     ) -> Tuple[ObsType, Dict]:
         state = np.array([0.0])
-        return state, {"cost": 0.0}
+        return state, {}
 
     def step(
         self, action: ActType
@@ -37,7 +37,7 @@ class OneActionZeroObsOneRewardEnv(gym.Env):
         terminated = True
         truncated = False
 
-        return state, reward, terminated, truncated, {"cost": 0.0}
+        return state, reward, terminated, truncated, {}
 
     def assertion(
         self,
