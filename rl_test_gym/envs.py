@@ -6,6 +6,7 @@ from gymnasium.core import ActType, ObsType
 from typing import Any, Dict, List, Optional, SupportsFloat, Tuple, Union
 
 
+# TODO: Create generic class that has the `assertion()`-method.
 class OneActionZeroObsOneRewardEnv(gym.Env):
     """
     Isolates the value network.
@@ -26,13 +27,13 @@ class OneActionZeroObsOneRewardEnv(gym.Env):
     def reset(
         self, *, seed: Optional[int] = None, options: Optional[Dict[str, Any]] = None
     ) -> Tuple[ObsType, Dict]:
-        state = np.array([0.0])
+        state = np.array([0.0], dtype=np.float32)
         return state, {}
 
     def step(
         self, action: ActType
     ) -> Tuple[ObsType, SupportsFloat, bool, bool, Dict[str, Any]]:
-        state = np.array([0.0])
+        state = np.array([0.0], dtype=np.float32)
         reward = 1.0
         terminated = True
         truncated = False
